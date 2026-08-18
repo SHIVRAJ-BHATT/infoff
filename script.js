@@ -3,8 +3,10 @@
 
   var ENDPOINT = "/player-info";
   var STORE_KEY = "ff_api_base";
-  var DEFAULT_API = window.location.origin;
-  var currentApi = localStorage.getItem(STORE_KEY) || DEFAULT_API;
+  var PERMANENT_API = "https://shivraj-info-freefireviamax.vercel.app";
+  
+  // Set permanent base API as default fallback
+  var currentApi = localStorage.getItem(STORE_KEY) || PERMANENT_API;
   var lastResult = null;
   var rawVisible = false;
 
@@ -238,7 +240,7 @@
 
   $("apiBaseSave").addEventListener("click", function () {
     var v = $("apiBaseInput").value.trim().replace(/\/+$/, "");
-    currentApi = v || DEFAULT_API;
+    currentApi = v || PERMANENT_API;
     localStorage.setItem(STORE_KEY, currentApi);
     updateApiDisplay();
     $("apiBaseInput").value = "";
