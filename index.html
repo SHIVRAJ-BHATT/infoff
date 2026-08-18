@@ -3,135 +3,202 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NAJMI INFO APIS — Free Fire Player Info</title>
-<meta name="description" content="Black &amp; Gold Free Fire player info lookup. Powered by the NAJMI FF EXPERIMENT API. Credits: Shivraj Bhatt." />
+<title>Shivraj Info APIs — Free Fire Player Lookup</title>
+<meta name="description" content="Premium Free Fire player lookup UI for fast UID search, polished visuals, and smooth mobile/desktop experience." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<div class="page-glow glow-1" aria-hidden="true"></div>
+<div class="page-glow glow-2" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
 
-<div class="bg-fx" aria-hidden="true"></div>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="#top" aria-label="Shivraj Info APIs home">
+      <span class="brand-mark">⚔</span>
+      <span class="brand-text">SHIVRAJ <span>INFO</span> APIS</span>
+    </a>
 
-<!-- ======= NAVBAR ======= -->
-<header class="navbar">
-  <a class="brand" href="#top"><span class="brand-emoji">🔥</span> NAJMI<span class="gold">INFO</span> APIS</a>
-  <nav class="nav-links">
-    <a href="#lookup">Lookup</a>
-    <a href="#features">Features</a>
-    <a href="#api">API</a>
-    <a class="nav-credit" href="https://github.com/SHIVRAJ-BHATT/" target="_blank" rel="noopener">⭐ Shivraj Bhatt</a>
-  </nav>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#lookup">Lookup</a>
+      <a href="#features">Features</a>
+      <a href="#api">API</a>
+      <a class="nav-accent" href="https://github.com/SHIVRAJ-BHATT/" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
 </header>
 
 <main id="top">
+  <section class="hero container">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">Premium Free Fire Player Search</p>
+      <h1>Fast UID lookup with a final, polished gaming UI.</h1>
+      <p class="hero-sub">
+        Search player profile details, rank data, clan info, pet info, social signature,
+        credit score and more with a sleek experience tuned for both desktop and mobile.
+      </p>
 
-  <!-- ======= HERO ======= -->
-  <section class="hero">
-    <p class="hero-badge">⚡ Free Fire Player Info API — Frontend UI</p>
-    <h1 class="gold-gradient">PLAYER INFO<br />IN STYLE</h1>
-    <p class="hero-sub">
-      Drop any Free Fire UID and instantly pull the player's profile, rank, clan,
-      pet, signature &amp; more — straight from the <strong>NAJMI FF EXPERIMENT</strong> API.
-    </p>
-    <div class="hero-meta">
-      <span>by <a href="https://github.com/SHIVRAJ-BHATT/" target="_blank" rel="noopener">Shivraj Bhatt</a></span>
-      <span class="dot">•</span>
-      <span>16 regions supported</span>
-      <span class="dot">•</span>
-      <span>GitHub Pages ready</span>
+      <div class="hero-pills">
+        <span>Responsive layout</span>
+        <span>Smooth interactions</span>
+        <span>Instant JSON export</span>
+        <span>API-ready</span>
+      </div>
     </div>
+
+    <aside class="hero-panel reveal">
+      <div class="hero-panel-top">
+        <span class="live-dot"></span>
+        <span>Live player data UI</span>
+      </div>
+      <div class="hero-stat-grid">
+        <div class="mini-card">
+          <strong>16</strong>
+          <span>Regions</span>
+        </div>
+        <div class="mini-card">
+          <strong>PC + Mobile</strong>
+          <span>Optimized</span>
+        </div>
+        <div class="mini-card">
+          <strong>1-click</strong>
+          <span>JSON Export</span>
+        </div>
+        <div class="mini-card">
+          <strong>Modern</strong>
+          <span>Glass UI</span>
+        </div>
+      </div>
+      <p class="hero-side-note">Built for a smoother, cleaner final deployment under the Shivraj brand.</p>
+    </aside>
   </section>
 
-  <!-- ======= LOOKUP ======= -->
-  <section class="lookup" id="lookup">
-    <div class="panel">
-      <h2 class="panel-title">🔍 UID Lookup</h2>
+  <section class="lookup-section container reveal" id="lookup">
+    <div class="panel panel-primary">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">UID Search</p>
+          <h2>Find player details instantly</h2>
+        </div>
+        <div class="status-chip">Ready</div>
+      </div>
+
       <form id="lookupForm" class="lookup-form" autocomplete="off">
-        <input id="uidInput" class="input" type="text" inputmode="numeric" placeholder="Enter Free Fire UID — e.g. 5513136279" required />
-        <select id="regionSelect" class="input select" aria-label="Region (optional)">
-          <option value="">Region (auto)</option>
-          <option>IND</option><option>BR</option><option>US</option><option>SAC</option>
-          <option>NA</option><option>SG</option><option>RU</option><option>ID</option>
-          <option>TW</option><option>VN</option><option>TH</option><option>ME</option>
-          <option>PK</option><option>CIS</option><option>BD</option><option>EUROPE</option>
-        </select>
-        <button class="btn btn-gold" type="submit">Fetch Info</button>
-        <button class="btn btn-ghost" type="button" id="demoBtn">▶ Demo</button>
+        <label class="field field-wide">
+          <span>Player UID</span>
+          <input id="uidInput" class="input" type="text" inputmode="numeric" placeholder="Enter Free Fire UID" required />
+        </label>
+
+        <label class="field">
+          <span>Region</span>
+          <select id="regionSelect" class="input select" aria-label="Region (optional)">
+            <option value="">Auto detect</option>
+            <option>IND</option><option>BR</option><option>US</option><option>SAC</option>
+            <option>NA</option><option>SG</option><option>RU</option><option>ID</option>
+            <option>TW</option><option>VN</option><option>TH</option><option>ME</option>
+            <option>PK</option><option>CIS</option><option>BD</option><option>EUROPE</option>
+          </select>
+        </label>
+
+        <button class="btn btn-primary" type="submit" id="submitBtn">Search Player</button>
       </form>
-      <div id="loading" class="loading hidden"><div class="spinner"></div><span>Querying API…</span></div>
+
+      <div class="lookup-hints">
+        <span>Numeric UID only</span>
+        <span>Region is optional</span>
+        <span>Works on phone and desktop</span>
+      </div>
+
+      <div id="loading" class="loading hidden" aria-live="polite">
+        <div class="spinner"></div>
+        <span>Loading player data…</span>
+      </div>
       <div id="errorBox" class="error hidden"></div>
       <div id="resultArea"></div>
       <div id="resultActions" class="result-actions hidden">
-        <button class="btn btn-ghost" id="copyJson" type="button">📋 Copy JSON</button>
-        <button class="btn btn-ghost" id="dlJson" type="button">⬇ Download JSON</button>
-        <button class="btn btn-ghost" id="expandJson" type="button">▾ Show raw JSON</button>
+        <button class="btn btn-secondary" id="copyJson" type="button">Copy JSON</button>
+        <button class="btn btn-secondary" id="dlJson" type="button">Download JSON</button>
+        <button class="btn btn-secondary" id="expandJson" type="button">Show raw JSON</button>
       </div>
       <pre id="rawJson" class="raw hidden"></pre>
     </div>
   </section>
 
-  <!-- ======= FEATURES ======= -->
-  <section class="features" id="features">
-    <h2 class="section-title">Why This UI</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="card-icon">⚡</div>
-        <h3>Blazing Lookup</h3>
-        <p>One UID in, full profile out. The backend auto-detects the player's region across all 16 servers.</p>
+  <section class="features-section container reveal" id="features">
+    <div class="section-heading centered">
+      <div>
+        <p class="section-kicker">Why this final version</p>
+        <h2>Cleaner brand, better usability, smoother feel</h2>
       </div>
-      <div class="card">
-        <div class="card-icon">🛡️</div>
-        <h3>Rich Player Data</h3>
-        <p>Nickname, level, BR &amp; CS rank, clan, captain, pet, social signature, credit score and diamond cost.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🌐</div>
-        <h3>GitHub Pages Friendly</h3>
-        <p>Pure HTML/CSS/JS — zero build step. Upload the folder, enable Pages, and it's live.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🎨</div>
-        <h3>Black &amp; Gold</h3>
-        <p>A luxurious dark theme with gold gradients, glass panels and glow effects — built for gamers.</p>
-      </div>
+    </div>
+
+    <div class="feature-grid">
+      <article class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Quick Lookup Flow</h3>
+        <p>Focused search layout with better spacing, improved hierarchy and faster result scanning.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>Fully Responsive</h3>
+        <p>Optimized cards, inputs, buttons and result grids for mobile screens, tablets and desktops.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">✨</div>
+        <h3>Smooth UI</h3>
+        <p>Modern gradients, glass surfaces, refined hover states and cleaner loading/error feedback.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">🧩</div>
+        <h3>API Flexible</h3>
+        <p>Uses the current deployment origin by default and still lets you save a custom API base URL.</p>
+      </article>
     </div>
   </section>
 
-  <!-- ======= API ======= -->
-  <section class="api panel" id="api">
-    <h2 class="panel-title">🛰 API Endpoint</h2>
-    <p class="muted">The site talks to the NAJMI INFO API. If you deploy it yourself (Vercel / Render), paste your own API base URL below — it is remembered in your browser.</p>
-    <div class="api-row">
-      <code id="apiDisplay" class="code">https://your-api.vercel.app/player-info?uid=…</code>
+  <section class="api-section container reveal" id="api">
+    <div class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">API Connection</p>
+          <h2>Connected endpoint</h2>
+        </div>
+      </div>
+
+      <p class="muted">By default the site uses the same deployment origin as the API base. If your API is hosted elsewhere, save a custom base URL below.</p>
+      <div class="api-row">
+        <code id="apiDisplay" class="code"></code>
+      </div>
+
       <details class="api-settings">
-        <summary>⚙ Set API base URL</summary>
+        <summary>Set custom API base URL</summary>
         <div class="api-settings-body">
-          <input id="apiBaseInput" class="input" type="url" placeholder="https://your-api.vercel.app" />
-          <button class="btn btn-gold" id="apiBaseSave" type="button">Save</button>
+          <input id="apiBaseInput" class="input" type="url" placeholder="https://your-api-domain.vercel.app" />
+          <button class="btn btn-primary" id="apiBaseSave" type="button">Save API URL</button>
         </div>
       </details>
+
+      <div class="api-note-grid">
+        <div class="api-note">
+          <h3>Request</h3>
+          <pre class="code code-block">GET /player-info?uid=&lt;UID&gt;&amp;region=&lt;REGION&gt;</pre>
+        </div>
+        <div class="api-note">
+          <h3>Returned data</h3>
+          <p class="muted small">basicInfo, profileInfo, clanBasicInfo, captainBasicInfo, petInfo, socialInfo, diamondCostRes and creditScoreInfo.</p>
+        </div>
+      </div>
     </div>
-
-    <h3 class="sub-title">🧪 Try the API directly</h3>
-    <p class="muted">Sample request (from the project README):</p>
-    <pre class="code code-block">GET /player-info?uid=5513136279</pre>
-    <p class="muted">Response is JSON containing <code>basicInfo</code>, <code>profileInfo</code>, <code>clanBasicInfo</code>, <code>captainBasicInfo</code>, <code>petInfo</code>, <code>socialInfo</code>, <code>diamondCostRes</code> and <code>creditScoreInfo</code>.</p>
   </section>
-
 </main>
 
-<!-- ======= FOOTER ======= -->
-<footer class="footer">
-  <div class="footer-inner">
-    <p class="footer-brand">🔥 NAJMI INFO APIS</p>
-    <p>Developed for the <strong>NAJMI FF EXPERIMENT</strong> API by <a href="https://github.com/SHIVRAJ-BHATT/" target="_blank" rel="noopener">Shivraj Bhatt</a>.</p>
-    <div class="footer-links">
-      <a href="https://github.com/SHIVRAJ-BHATT/" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://github.com/SHIVRAJ-BHATT/Shivraj-info-freefireviamax" target="_blank" rel="noopener">Free Fire Repo</a>
-      <a href="https://www.youtube.com/@shiv_craftland_creation" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/shivraj_bhatt_001" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://t.me/localhost31" target="_blank" rel="noopener">Telegram</a>
-    </div>
-    <p class="footer-note">© 2026 NAJMI FF EXPERIMENT · UI credits: Shivraj Bhatt (SHIVRAJ-BHATT) · Not affiliated with Garena.</p>
+<footer class="site-footer">
+  <div class="container footer-wrap">
+    <p class="footer-brand">SHIVRAJ INFO APIS</p>
+    <p class="footer-copy">Premium Free Fire player info UI by <a href="https://github.com/SHIVRAJ-BHATT/" target="_blank" rel="noopener">Shivraj Bhatt</a>. Not affiliated with Garena.</p>
   </div>
 </footer>
 
